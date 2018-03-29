@@ -1,37 +1,30 @@
-defmodule Habitibot.MixProject do
+defmodule Habitibot.Umbrella.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :habitibot,
-      version: "0.1.0",
-      elixir: "~> 1.6",
+      apps_path: "apps",
       start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      elixirc_paths: elixirc_paths(Mix.env())
+      deps: deps()
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
-  def application do
-    [
-      extra_applications: [:logger]
-    ]
-  end
-
-  defp elixirc_paths(:test), do: ["test/support", "lib"]
-  defp elixirc_paths(_), do: ["lib"]
-
-  # Run "mix help deps" to learn about dependencies.
+  # Dependencies can be Hex packages:
+  #
+  #   {:mydep, "~> 0.3.0"}
+  #
+  # Or git/path repositories:
+  #
+  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
+  #
+  # Type "mix help deps" for more examples and options.
+  #
+  # Dependencies listed here are available only for this project
+  # and cannot be accessed from applications inside the apps folder
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
-      {:httpoison, "~> 1.0"},
-      {:poison, "~> 3.1"},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
-      {:mox, "~> 0.3", only: :test}
+      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false}
     ]
   end
 end

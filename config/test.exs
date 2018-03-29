@@ -1,3 +1,4 @@
 use Mix.Config
 
-config :habitibot, habitica_api: Habitica.API.Mock
+# Print only warnings and errors during test
+config :logger, level: :warn
