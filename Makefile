@@ -44,3 +44,8 @@ docker-down:
 docker-reload:
 	sudo docker-compose down
 	sudo docker-compose up -d
+
+s: server
+serve: server
+server:
+	mix phx.server
