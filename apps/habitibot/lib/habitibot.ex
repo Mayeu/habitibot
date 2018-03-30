@@ -20,4 +20,12 @@ defmodule Habitibot do
   @spec have_pending_quest?(map) :: boolean
   def have_pending_quest?(%{"quest" => %{"active" => false, "key" => quest_key}}), do: true
   def have_pending_quest?(_), do: false
+
+  @doc """
+  Given a connection, check that a user exist.
+  """
+  @spec check_user(Habitica.API.Connection.t()) :: {:ok, map} | {:error, map}
+  def check_user(conn) do
+    Habitica.get_user_data(conn)
+  end
 end

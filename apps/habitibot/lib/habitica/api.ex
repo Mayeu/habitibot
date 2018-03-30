@@ -2,6 +2,7 @@ defmodule Habitica.API do
   @callback get_party(conn :: Habitica.API.Connection.t()) :: {:ok, map} | {:error, map}
   @callback accept_quest(conn :: Habitica.API.Connection.t()) ::
               :ok | {:ok, :nothing_to_accept} | {:error, map} | {:already_accepted, map}
+  @callback get_user_data(conn :: Habitica.API.Connection.t()) :: {:ok, map} | {:error, map}
 end
 
 defmodule Habitica.API.Connection do
@@ -80,6 +81,28 @@ defmodule Habitica.API.HTTP do
           _ ->
             {:error, body}
         end
+    end
+  end
+
+  def get_user_data(conn) do
+    url = conn.host |> URI.merge("#{@api_path}/user") |> to_string
+
+    headers = [
+      "Content-Type": "application/json",
+      "x-api-user": conn.id,
+      "x-api-key": conn.token
+    ]
+
+    {:ok, response} = HTTPoison.get(url, headers)
+    body = Poison.decode!(response.body)
+    data = body["data"]
+
+    case response do
+      %HTTPoison.Response{status_code: 200} ->
+        {:ok, data}
+
+      _ ->
+        {:error, body}
     end
   end
 end
