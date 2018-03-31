@@ -16,7 +16,7 @@ defmodule Repository.User do
     required_fields = [:user_id, :api_token, :username, :quest_bot]
 
     user
-    |> Changeset.cast(params, accepted_fields)
-    |> Changeset.validate_required(required_fields)
+    |> Ecto.Changeset.cast(params, accepted_fields)
+    |> Ecto.Changeset.validate_required(required_fields)
   end
 end
