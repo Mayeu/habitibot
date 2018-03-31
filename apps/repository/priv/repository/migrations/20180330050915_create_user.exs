@@ -8,6 +8,8 @@ defmodule Repository.Migrations.CreateUser do
       add(:username, :string)
       add(:group_id, :string)
       add(:quest_bot, :boolean)
+
+      timestamps()
     end
   end
 end

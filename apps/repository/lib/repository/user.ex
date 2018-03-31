@@ -1,14 +1,14 @@
 defmodule Repository.User do
   use Ecto.Schema
 
-  alias Ecto
-
   schema "users" do
     field(:user_id, :string)
     field(:api_token, :string)
     field(:username, :string)
     field(:group_id, :string)
     field(:quest_bot, :boolean, default: false)
+
+    timestamps
   end
 
   def changeset(user, params \\ %{}) do
