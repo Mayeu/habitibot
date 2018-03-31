@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for @conn, setting_path(@conn, :check_account), [as: :user], fn f -> %>
+  <%= form_for @conn, session_path(@conn, :create), [as: :user], fn f -> %>
     <div class="form-group">
       <%= text_input f, :id, placeholder: "User ID", class: "form-control" %>
     </div>

@@ -18,7 +18,9 @@ defmodule HabitibotWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
-    post("/settings", SettingController, :check_account)
+
+    post("/session", SessionController, :create)
+
     get("/settings", SettingController, :index)
     post("/settings/toggle_quest_bot", SettingController, :toggle_quest_bot)
   end
