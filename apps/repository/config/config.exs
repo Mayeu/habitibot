@@ -5,10 +5,10 @@ use Mix.Config
 config :repository, Repository, adapter: EctoMnesia.Adapter
 
 config :ecto_mnesia,
-  host: {:system, :atom, "MNESIA_HOST", Kernel.node()},
+  host: :habitibot_db,
   storage_type: {:system, :atom, "MNESIA_STORAGE_TYPE", :disc_copies}
 
-config :mnesia, :dir, '../../priv/data/mnesia'
+config :mnesia, :dir, 'priv/data/mnesia'
 
 config :repository, ecto_repos: [Repository]
 
