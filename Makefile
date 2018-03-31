@@ -26,13 +26,13 @@ test: .test-done.mk
 	touch $@
 
 watch-test:
-	ag -l | entr make test
+	ag -l --ignore node_modules | entr make test
 
 test-localhost:
 	mix test --include localhost
 
 watch-test-localhost:
-	ag -l | entr make test-localhost
+	ag -l --ignore node_modules | entr make test-localhost
 
 docker: docker-up
 docker-up:
