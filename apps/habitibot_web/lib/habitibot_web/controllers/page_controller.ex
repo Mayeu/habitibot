@@ -5,6 +5,7 @@ defmodule HabitibotWeb.PageController do
     case authenticate(conn) do
       %Plug.Conn{halted: true} = conn ->
         conn
+        |> render("index.html")
 
       conn ->
         conn
@@ -17,8 +18,6 @@ defmodule HabitibotWeb.PageController do
       conn
     else
       conn
-      |> put_flash(:error, "You must be logged in to access that page")
-      |> redirect(to: page_path(conn, :index))
       |> halt()
     end
   end
