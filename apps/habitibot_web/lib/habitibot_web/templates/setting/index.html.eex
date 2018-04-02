@@ -1,7 +1,9 @@
+<h1> Welcome <%= @current_user.username %></h1>
+
 <%= form_for @conn, setting_path(@conn, :toggle_quest_bot), [as: :quest_bot], fn f -> %>
 <div class="form-group">
   <%= label f, :state, "Automaticly accept quest" %>
-  <%= checkbox f, :state, value: false %>
+  <%= checkbox f, :state, value: @current_user.quest_bot %>
 </div>
 <%= submit "Save settings", class: "btn btn-primary" %>
 <% end %>

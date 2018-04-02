@@ -77,10 +77,9 @@ defmodule HabitibotWeb.SessionController do
 
   defp login_user(user, conn) do
     conn
-    |> put_session("user", %{
-      id: user.user_id,
-      token: user.api_token
-    })
+    |> assign(:current_user, user)
+    |> put_session(:user_id, user.id)
+    |> configure_session(renew: true)
     |> put_flash(:info, "Welcome #{user.username}")
     |> redirect(to: setting_path(conn, :index))
   end
