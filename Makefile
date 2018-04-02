@@ -2,8 +2,10 @@
 
 EX_FILES := $(shell find . -name *.ex)
 TEST_FILES := $(shell find . -name *.exs)
+MIX_FILES := $(shell find . -name mix.exs)
+MIX_LOCK_FILES := $(shell find . -name mix.lock)
 
-deps: mix.exs mix.lock
+deps: $(MIX_FILES) $(MIX_LOCK_FILES)
 	mix deps.get
 	mix deps.compile
 	touch $@
