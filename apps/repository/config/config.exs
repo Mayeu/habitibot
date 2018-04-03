@@ -5,10 +5,8 @@ use Mix.Config
 config :repository, Repository, adapter: EctoMnesia.Adapter
 
 config :ecto_mnesia,
-  host: :habitibot_db,
-  storage_type: {:system, :atom, "MNESIA_STORAGE_TYPE", :disc_copies}
-
-config :mnesia, :dir, 'priv/data/mnesia'
+  host: {:system, :atom, "MNESIA_HOST", Kernel.node()},
+  storage_type: :disc_copies
 
 config :repository, ecto_repos: [Repository]
 
@@ -36,5 +34,5 @@ config :repository, ecto_repos: [Repository]
 # by uncommenting the line below and defining dev.exs, test.exs and such.
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
-#
-#     import_config "#{Mix.env}.exs"
+
+import_config "#{Mix.env()}.exs"

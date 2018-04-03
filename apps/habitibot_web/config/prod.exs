@@ -15,8 +15,14 @@ use Mix.Config
 # which you typically run after static files are built.
 config :habitibot_web, HabitibotWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  http: [port: {:system, "PORT"}],
+  url: [host: "localhost", port: 8000],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  root: ".",
+  version: Application.spec(:habitibot_web, :vsn)
+
+config :habitibot_web, :habitica_api_url, "https://habitica.com"
 
 # ## SSL Support
 #

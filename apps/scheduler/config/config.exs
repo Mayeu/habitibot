@@ -23,7 +23,8 @@ use Mix.Config
 
 config :scheduler, Scheduler,
   jobs: [
-    {"0 * * * *", {Scheduler, :schedule_quest_acceptation, []}}
+    {"0 * * * *", {Scheduler, :schedule_quest_acceptation, []}},
+    {"@daily", {:mnesia, :backup, ['/var/backup/mnesia']}}
   ]
 
 # It is also possible to import configuration files, relative to this
@@ -31,5 +32,7 @@ config :scheduler, Scheduler,
 # by uncommenting the line below and defining dev.exs, test.exs and such.
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
-#
+
+config :scheduler, ecto_repos: []
+
 import_config "#{Mix.env()}.exs"
