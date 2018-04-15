@@ -2,7 +2,7 @@
 
 Habitibot is a bot for automating boring tasks on Habitica.
 
-For now it is fairly minimal, since it only allow you to automatically accept
+For now it is fairly minimal, since it only allows you to automatically accept
 your party's quests.
 
 ## Gift economy
@@ -29,12 +29,12 @@ run:
 make serve
 ```
 
-in your favorite terminal to launch the server
+in your favourite terminal to launch the server
 
 ## Development
 
 I'm trying to maintain a development environment with this project. This
-environment depend of Docker & Docker Compose. It will run Habitica locally so
+environment depends of Docker & Docker Compose. It will run Habitica locally so
 one can test changes without having to rely on the internet.
 
 You can start the environment with:
@@ -45,7 +45,10 @@ make docker-up
 
 And you can find the test groups and account details in `docker/README`.
 
-## License
+## Licence
 
-This project is provided under the Affero General Public License 3.0+ (or
-agpl-3.0+)
+This project is provided under the Affero General Public Licence 3.0+ (or
+agpl-3.0+).
+
+Copyright (C) 2018 Matthieu Maury <m@mayeu.me>
+
