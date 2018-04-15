@@ -35,7 +35,7 @@ end
 environment :prod do
   set(include_erts: true)
   set(include_src: false)
-  set(cookie: :"g0Dg;|>V<MbMHc,@}RmUEEOO<Ey$A5L;U:|>sJzZEBpx6PeYcL$dH<UjmhQ=%>|W")
+  set(cookie: "{ERLANG_COOKIE}")
   set(post_start_hook: Path.join(["rel", "hooks", "post_start"]))
 end
 
@@ -45,7 +45,7 @@ end
 # will be used by default
 
 release :habitibot do
-  set(version: "0.1.2")
+  set(version: "0.1.3")
 
   set(
     applications: [
