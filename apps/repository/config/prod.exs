@@ -1,3 +1,3 @@
 use Mix.Config
 
-config :mnesia, :dir, '/var/lib/mnesia'
+config :mnesia, :dir, '/var/lib/mnesia/habitibot'
