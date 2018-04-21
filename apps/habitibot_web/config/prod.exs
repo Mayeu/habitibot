@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :habitibot_web, HabitibotWeb.Endpoint,
   load_from_system_env: true,
-  http: [port: {:system, "PORT"}],
+  http: [port: {:system, "PORT"}, ip: {127, 0, 0, 1}],
   url: [host: "localhost", port: 8000],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
