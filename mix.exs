@@ -25,7 +25,7 @@ defmodule Habitibot.Umbrella.Mixfile do
     [
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
-      {:distillery, "~> 1.5", runtime: false}
+      {:distillery, "~> 2.0", runtime: false}
     ]
   end
 end
