@@ -38,7 +38,7 @@ defmodule Habitibot.Mixfile do
     [
       {:httpoison, "~> 1.0"},
       {:poison, "~> 3.1"},
-      {:mox, "~> 0.3", only: :test}
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 
