@@ -38,7 +38,7 @@ defmodule HabitibotWeb.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
-      {:phoenix, "~> 1.3.2"},
+      {:phoenix, "~> 1.6.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
